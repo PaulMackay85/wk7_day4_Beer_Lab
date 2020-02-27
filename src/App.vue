@@ -33,6 +33,21 @@ export default {
     eventBus.$on('beer-selected', (beer) => {
       this.selectedBeer = beer;
     })
+
+    eventBus.$on('add-to-fav', (beer) => {
+      if (beer['isFav'] === undefined){
+      beer['isFav'] = true;
+      this.favouriteBeers.push(beer);
+      this.selectedBeer = null;
+    }
+    })
+
+    eventBus.$on('remove-beer', (beer) => {
+      let index = this.favouriteBeers.indexOf(beer);
+      beer['isFav'] = undefined;
+      this.favouriteBeers.splice(index, 1);
+      this.selectedBeer = null;
+    })
   },
   components: {
     "beer-list": BeerList,
