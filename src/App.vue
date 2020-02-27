@@ -3,7 +3,8 @@
     <h1>Beer List</h1>
     <div class="main-container">
       <beer-list :beers='beers'></beer-list>
-      <beer-details :beer='selectedBeer'></beer-details>
+      <beer-details :beer='selectedBeer' :favouriteBeers='favouriteBeers'></beer-details>
+      <favourite-beers :favourites='favouriteBeers'></favourite-beers>
     </div>
 
   </div>
@@ -12,6 +13,7 @@
 <script>
 import BeerList from './components/BeerList.vue';
 import BeerDetails from './components/BeerDetails.vue';
+import FavouriteBeers from './components/FavouriteBeers.vue';
 import {eventBus} from './main.js';
 
 export default {
@@ -19,7 +21,8 @@ export default {
   data(){
     return {
       beers: [],
-      selectedBeer: null
+      selectedBeer: null,
+      favouriteBeers: []
     };
   },
   mounted(){
@@ -34,6 +37,7 @@ export default {
   components: {
     "beer-list": BeerList,
     "beer-details": BeerDetails,
+    "favourite-beers": FavouriteBeers
    }
 }
 </script>

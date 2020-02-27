@@ -1,6 +1,7 @@
 <template lang="html">
   <div v-if="beer">
     <h3>{{beer.name}}</h3>
+    <button @click="handleClick">Add Favourite</button>
     <p>{{beer.description}}</p>
     <img :src="beer.image_url" alt="beer_pic">
   </div>
@@ -9,7 +10,13 @@
 <script>
 export default {
   name: "beer-details",
-  props: ['beer']
+  props: ['beer', 'favouriteBeers'],
+  methods: {
+    handleClick(){
+      this.beer['isFav'] = true;
+      this.favouriteBeers.push(this.beer)
+    }
+  }
 }
 </script>
 
