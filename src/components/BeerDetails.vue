@@ -13,8 +13,11 @@ export default {
   props: ['beer', 'favouriteBeers'],
   methods: {
     handleClick(){
+      console.log(this.beer['isFav']);
+      if (this.beer['isFav'] === undefined) {
       this.beer['isFav'] = true;
       this.favouriteBeers.push(this.beer)
+    }
     }
   }
 }
