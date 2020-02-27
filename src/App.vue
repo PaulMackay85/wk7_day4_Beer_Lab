@@ -1,11 +1,12 @@
 <template>
   <div id="app">
-
+    <h1>Beer List</h1>
+    <beer-list :beers='beers'></beer-list>
   </div>
 </template>
 
 <script>
-
+import BeerList from './components/BeerList.vue';
 
 export default {
   name: 'App',
@@ -21,7 +22,8 @@ export default {
     .then(data => this.beers = data)
   },
   components: {
-  }
+    "beer-list": BeerList
+   }
 }
 </script>
 
