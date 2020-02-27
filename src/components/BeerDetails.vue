@@ -5,6 +5,7 @@
     <button @click="removeOnClick">Remove Favourite</button>
     <p>{{beer.description}}</p>
     <img :src="beer.image_url" alt="beer_pic">
+    <p v-for="(value, name) in beer.ingredients">{{name}}:{{value}}</p>
   </div>
 </template>
 
